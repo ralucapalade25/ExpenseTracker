@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    height: 100vw;
+}
+
+
+h1 {
+    font-family: Caveat;
+    text-align: center;
+    font-size: 100px;
+}
+
+h2 {
+    font-family: Noto Sans;
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    background-color: #F6F6F6;
+}
+

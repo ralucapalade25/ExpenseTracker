@@ -1,0 +1,17 @@
+@import "./general/partials/mixins.scss";
+
+.sidebar {
+    background-color: #FFFBF3;
+    height: 100vw;
+    width: 122px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px
+}
+
+@include response ($mobile) {
+    .sidebar {
+        display: none;
+    }
+}

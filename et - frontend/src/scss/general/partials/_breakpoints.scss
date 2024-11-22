@@ -1,0 +1,7 @@
+$mobileSmall: "screen and (max-width: 600px)";
+$mobile: "screen and (max-width: 767px)";
+$mobileFull: "screen and (max-width: 900px) and (orientation: landscape), (max-width: 760px) and (orientation: portrait)";
+$notMobile: "(min-width: 900px) and (orientation: landscape), (min-width: 760px) and (orientation: portrait)";
+$tablet: "screen and (min-width: 768px) and (max-width: 1024px)";
+$desktop: "screen and (min-width: 1025px)";
+$largeDesktop: "screen and (min-width: 1440px)";
