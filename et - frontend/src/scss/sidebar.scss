@@ -11,6 +11,8 @@
     padding-top: 16px;
     gap: 100px;
 
+
+
     &__menu {
         display: flex;
         flex-direction: column;
@@ -64,6 +66,13 @@
        
     }
 
+}
+
+@include response ($desktop) {
+    .sidebar {
+        grid-row: 1 / span 2;
+        grid-column: 1;
+    }
 }
 
 @include response ($mobile) {

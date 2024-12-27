@@ -1,3 +1,3 @@
 export default function Paper(){
-    return <div></div>
+    return <div>Paper test</div>
 }

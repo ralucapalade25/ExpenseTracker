@@ -8,6 +8,7 @@
     align-items: center;
     padding: 0 16px;
 
+
     input {
         width: 444px;
         height: 59px;
@@ -44,6 +45,13 @@
 
     &__icons {
         display: none;
+    }
+}
+
+@include response ($desktop) {
+    .header {
+        grid-row: 1;
+        grid-column: 2;
     }
 }
 
