@@ -1,0 +1,39 @@
+@import "../general/partials/mixins.scss";
+
+.categories {
+    background-color: #FFFFFF;
+    max-width: fit-content;
+    max-height: fit-content;
+    padding: 32px;
+    border-radius: 16px;
+    margin-left: 16px;
+
+    &__title {
+        color: #424242; 
+        border-bottom: 1px solid #D7D7D7;
+        padding-bottom: 16px;
+        font-size: 24px;
+        margin: 0;
+        font-family: "Roboto", serif;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px 48px;
+        place-self: center;
+        padding: 48px 0;
+    }
+
+    img {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+@include response ($mobile) {
+    .categories {
+        display: none;
+    }
+}
