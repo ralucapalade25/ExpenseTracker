@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, UpdateDateColumn } from "typeorm";
 import { Transaction } from "./transactions.entity";
 import { UserIncomeSource } from "./user.income.sources.entity";
 
@@ -19,13 +19,13 @@ export class User {
     @Column()
     password: string;
 
-    @Column()
+    @Column({ nullable: true })
     monthly_budget: number;
 
-    @Column()
+    @CreateDateColumn()
     creation_date: Date;
 
-    @Column()
+    @UpdateDateColumn()
     updated_date: Date;
 
     @Column( {default: true} )
@@ -36,4 +36,19 @@ export class User {
 
     @OneToMany(type => UserIncomeSource, source => source.user)
     sources: UserIncomeSource[];    
+
+    constructor(
+        name: string,
+        email: string,
+        password: string,
+        username: string
+      ) {
+        if (name && email && password && username) {
+          this.name = name;
+          this.email = email;
+          this.password = password;
+          this.username = username;
+        }
+    }
+
 }
