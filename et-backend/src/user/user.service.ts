@@ -33,9 +33,9 @@ export class UserService {
                     token: jwt.sign(payload),
                 };
             }
-            return new HttpException('Incorrect username or password', HttpStatus.UNAUTHORIZED)
+            throw new HttpException('Incorrect username or password', HttpStatus.UNAUTHORIZED)
         }
-        return new HttpException('Incorrect username or password', HttpStatus.UNAUTHORIZED)
+        throw new HttpException('Incorrect username or password', HttpStatus.UNAUTHORIZED)
     }
 
     async getOne(email): Promise<User> {

@@ -9,19 +9,19 @@ export default function Sidebar () {
             <div className='sidebar'>
                 <img src="/img/app-logo.png" alt="App logo" width={86} height={86}/>
                 <div className='sidebar__menu'>
-                    <NavLink to="Dashboard" className='sidebar__icon'>
+                    <NavLink to="dashboard" className='sidebar__icon'>
                         <img src="/img/sidebar-icons/category.svg" alt="category icon" width={24} height={24} />
                     </NavLink>
-                    <NavLink to="Add" className='sidebar__icon'>
+                    <NavLink to="add" className='sidebar__icon'>
                         <img src="/img/sidebar-icons/add.svg" alt="add icon" width={24} height={24}/>
                     </NavLink>
-                    <NavLink to="Chart" className='sidebar__icon'>
+                    <NavLink to="chart" className='sidebar__icon'>
                         <img src="/img/sidebar-icons/chart.svg" alt="chart icon" width={24} height={24}/>
                     </NavLink>
-                    <NavLink to="Paper" className='sidebar__icon'>
+                    <NavLink to="paper" className='sidebar__icon'>
                         <img src="/img/sidebar-icons/paper.svg" alt="paper icon" width={24} height={24}/>
                     </NavLink>
-                    <NavLink to="Settings" className='sidebar__icon'>
+                    <NavLink to="settings" className='sidebar__icon'>
                         <img src="/img/sidebar-icons/settings.svg" alt="settings icon" width={24} height={24}/>
                     </NavLink>
                 </div>

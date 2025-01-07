@@ -8,22 +8,18 @@ import { Tooltip } from 'react-tooltip';
 const Category = () => {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState<CategoryInterface[]>([]);
-    const [hover, setHover] = useState(false);
-
-    const onHover = () => {
-        setHover(true);
-    };
-
-    const onLeave = () => {
-        setHover(false);
+    const token = localStorage.getItem('token');
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
     };
 
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const {data: response} = await axios.get('http://localhost:3001/api/category')
+                const {data: response} = await axios.get('http://localhost:3001/api/category', config)
                 setData(response);
+
             } catch (error) {
                 console.error(error)  
             }
@@ -41,7 +37,7 @@ const Category = () => {
                 <div className='categories__grid'>
                     {data.map((item, index) => (
                         <>
-                            <img key={item.category_id} src={`/img/categories/${item.image_path}`} alt={item.name} width={80} height={80} onMouseEnter={onHover} onMouseLeave={onLeave} className={`categories__${index}`} />
+                            <img key={item.category_id} src={`/img/categories/${item.image_path}`} alt={item.name} width={80} height={80} className={`categories__${index}`} />
                             <Tooltip anchorSelect={`.categories__${index}`} place="top">{item.name}</Tooltip>
                         </>
                     ))}
