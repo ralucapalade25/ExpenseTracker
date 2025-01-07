@@ -7,21 +7,31 @@ import Chart from './routes/Chart';
 import Paper from './routes/Paper';
 import Settings from './routes/Settings';
 import Homepage from './routes/Homepage';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import { AuthProvider } from './components/AuthContext';  
+import ProtectedRoute from './components/ProtectedRoute';
 
 
-function App() {
+const App = () => {
+
   return (
-    <BrowserRouter>
-    <Routes>
-        <Route path="/" element={<Homepage />}>
-            <Route path="Dashboard" element={<Dashboard />} />
-            <Route path="Add" element={<Add />} />
-            <Route path="Chart" element={<Chart />} />
-            <Route path="Paper" element={<Paper />} />
-            <Route path="Settings" element={<Settings />} />
-        </Route>
-    </Routes>
-</BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<ProtectedRoute><Homepage /></ProtectedRoute>}>
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="add" element={<Add />} />
+                <Route path="chart" element={<Chart />} />
+                <Route path="paper" element={<Paper />} />
+                <Route path="settings" element={<Settings />} />
+            </Route>
+            <Route path="user/signin" element={<SignIn />} />
+            <Route path="user/signup" element={<SignUp />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+    
   );
 }
 

@@ -12,7 +12,7 @@ body {
 
 
 h1 {
-    font-family: Caveat;
+    font-family: Roboto;
     text-align: center;
     font-size: 100px;
 }
@@ -32,6 +32,12 @@ h2 {
         display: grid;
         grid-template-columns: 122px 1fr;
         grid-template-rows: auto 1fr;
+    }
+}
+
+@include response ($mobile) {
+    h1 {
+        font-size: 50px
     }
 }
 

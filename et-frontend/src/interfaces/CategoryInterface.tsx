@@ -5,5 +5,4 @@ export interface CategoryInterface {
     updated_date: Date;
     image_path: string;
     active: boolean;
-
 }
