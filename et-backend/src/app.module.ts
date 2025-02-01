@@ -6,6 +6,12 @@ import { join } from 'path';
 import { CategoryModule } from './category/category.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { UserModule } from './user/user.module';
+import { TransactionModule } from './transactions/transactions.module';
+import { User } from './entities/users.entity';
+import { Transaction } from './entities/transactions.entity';
+import { Category } from './entities/categories.entity';
+import { IncomeSource } from './entities/income.sources.entity';
+import { UserIncomeSource } from './entities/user.income.sources.entity';
 
 @Module({
   imports: [
@@ -19,11 +25,11 @@ import { UserModule } from './user/user.module';
       username: 'postgres',
       password: 'test',
       database: 'postgres',
-      entities: [join(__dirname, '**', '*.entity.{ts,js}')],
-      synchronize: true,
+      entities: [User, Transaction, Category, IncomeSource, UserIncomeSource],
       migrations: ['dist/migrations/*.js'],
     }),
     CategoryModule,
+    TransactionModule,
     UserModule
   ],
   controllers: [],

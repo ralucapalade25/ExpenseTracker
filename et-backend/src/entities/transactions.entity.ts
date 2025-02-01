@@ -25,11 +25,11 @@ export class Transaction {
     @Column( {default: true} )
     active: boolean;
 
-    @ManyToOne(() => User)
+    @ManyToOne(() => User, { nullable: false })
     @JoinColumn({name: 'user_id'})
     user: User;
 
-    @ManyToOne(() => Category)
+    @ManyToOne(() => Category, (category) => category.transactions, { nullable: false, eager: true })
     @JoinColumn({name: 'category_id'})
     category: Category;
 
