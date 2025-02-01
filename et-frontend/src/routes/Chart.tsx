@@ -1,3 +1,8 @@
-export default function Chart(){
-    return <div></div>
+const Chart = () => {
+   
+    return ( 
+        <div>chart</div>
+    )
 }
+
+export default Chart;

@@ -17,6 +17,7 @@ export class UserService {
       async signup(user: UserDTO): Promise<User> {
         const salt = await bcrypt.genSalt();
         const hash = await bcrypt.hash(user.password, salt);
+        
         const newUser = new User(user.name, user.email, hash, user.username);
         return this.userRepository.save(newUser);
     }
@@ -25,8 +26,6 @@ export class UserService {
         const foundUser = await this.userRepository.findOneBy({ email: user.email });
         if (foundUser) {
             const { password } = foundUser;
-            console.log(foundUser.password)
-            console.log(user.password)
             if (await bcrypt.compare(user.password, password)) {
                 const payload = { email: user.email };
                 return {
