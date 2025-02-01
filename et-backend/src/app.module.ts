@@ -4,10 +4,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { join } from 'path';
 import { CategoryModule } from './category/category.module';
-
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -19,11 +23,13 @@ import { CategoryModule } from './category/category.module';
       synchronize: true,
       migrations: ['dist/migrations/*.js'],
     }),
-    CategoryModule
+    CategoryModule,
+    UserModule
   ],
   controllers: [],
   providers: [AppService],
 })
 export class AppModule {
   constructor(private dataSource: DataSource) {}
+
 }

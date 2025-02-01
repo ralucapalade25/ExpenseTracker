@@ -1,0 +1,75 @@
+@import "../general/partials/mixins.scss";
+
+.form {
+    background-color: #FFFBF3;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #424242;
+    border-radius: 16px;
+    padding: 16px;
+    font-family: Roboto;
+
+    input {
+        height: 32px;
+        padding: 8px;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 14px;
+
+        &:has(.form__error) {
+            input {
+                border-color:#E30B5C;
+            }
+
+        }
+    }
+
+    &__submit {
+        padding: 8px 16px;
+        background-color: #FFECB3;
+        border-radius: 16px;
+        max-width: fit-content;
+        align-self: center;
+        font-size: 16px;
+        border: 1px solid #ADADAD;
+        text-transform: uppercase;
+        color: #424242;
+        font-weight: 700;
+        &:hover {
+            cursor: pointer;
+            background-color: #ffefbf;
+        }
+    }
+
+    &__error {
+        color: #E30B5C;
+        font-weight: 700;
+    }
+    &__buttons {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    a {
+        color:#0000EE;
+        &:hover {
+            cursor: pointer;
+            color: #5b5bca;
+        }
+    }
+}
+
+@include response ($mobile) {
+    .form {
+        max-width: 300px;
+    }
+}
